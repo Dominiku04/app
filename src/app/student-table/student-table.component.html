@@ -1,0 +1,39 @@
+<div class="app-container">
+    <aside class="sidebar">
+      <div class="user-info">
+        <div class="user-avatar"></div>
+        <div class="user-name">ADMIN</div>
+        <div class="user-role">CCS / BSCS</div>
+      </div>
+    </aside>
+    <main class="main-content">
+      <header class="header">
+        <h1>STUDENTS</h1>
+      </header>
+      <section class="search-section">
+        <input [(ngModel)]="searchText" placeholder="Search Class..." class="search-input" />
+        <button class="search-button"><i class="fa fa-search"></i></button>
+      </section>
+      <section class="table-section">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Course</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let student of filteredStudents">
+              <td>{{ student.id }}</td>
+              <td>{{ student.name }}</td>
+              <td>{{ student.age }}</td>
+              <td>{{ student.course }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+  
