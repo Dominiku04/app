@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Student } from '../student.model';
+import { MatDialog } from '@angular/material/dialog';
+import { StudentDialogComponent } from '../student-dialog/student-dialog.component';
 
 @Component({
   selector: 'app-student-table',
@@ -21,6 +23,8 @@ export class StudentTableComponent {
   courses: string[] = ['Computer Science', 'Information Technology', 'ACT'];
   yearLevels: string[] = ['First Year', 'Second Year', 'Third Year', 'Fourth Year'];
 
+  private dialogRef: any = null;
+
   get filteredStudents(): Student[] {
     return this.students.filter(student =>
       student.name.toLowerCase().includes(this.searchText.toLowerCase()) &&
@@ -28,4 +32,33 @@ export class StudentTableComponent {
       (this.selectedYearLevel === '' || student.level === this.selectedYearLevel)
     );
   }
+
+  constructor(public dialog: MatDialog) {}
+
+  viewStudent(student: Student): void {
+    // Close any existing dialog
+    if (this.dialogRef) {
+      this.dialogRef.close();
+      this.dialogRef = null; // Reset dialogRef
+    }
+
+    // Open new dialog
+    this.dialogRef = this.dialog.open(StudentDialogComponent, {
+      width: '600px',
+      maxWidth: '90vw',
+      data: student,
+      panelClass: 'custom-dialog-container'
+    });
+
+    // Reset dialogRef after the dialog closes
+    this.dialogRef.afterClosed().subscribe(() => {
+      this.dialogRef = null; // Reset dialogRef after dialog is closed
+      console.log('The dialog was closed');
+    });
+  }  
+
+  toggleRestriction(student: Student): void {
+    student.restricted = !student.restricted;
+  }
 }
+

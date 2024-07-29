@@ -3,12 +3,15 @@ body, html {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+  height: 100%;
+  overflow: hidden; /* Prevent scrollbars */
 }
 
 /* Container styles */
 .app-container {
   display: flex;
-  height: 100vh;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden;
 }
 
 /* Sidebar styles */
@@ -17,6 +20,7 @@ body, html {
   background-color: #ff7001;
   color: #fff;
   padding: 20px;
+  box-sizing: border-box; /* Include padding in width */
 }
 
 .user-info {
@@ -25,8 +29,8 @@ body, html {
 }
 
 .user-avatar {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   background-color: #fff;
   border-radius: 50%;
   margin: 0 auto;
@@ -42,10 +46,11 @@ body, html {
 
 .user-name {
   font-weight: bold;
+  font-size: 1.1em;
 }
 
 .user-role {
-  font-size: 0.9em;
+  font-size: 0.8em;
 }
 
 /* Main content styles */
@@ -53,19 +58,27 @@ body, html {
   flex-grow: 1;
   background-color: #f5f5f5;
   padding: 20px;
+  box-sizing: border-box; /* Include padding in width */
+  overflow-y: auto; /* Enable vertical scrolling */
 }
 
+/* Header styles */
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #ff7001;
+  padding-bottom: 5px;
 }
 
 .header h1 {
   margin: 0;
+  padding-right: 10px;
+  font-size: 1.5em;
 }
 
+/* Search section styles */
 .search-section {
   display: flex;
   align-items: center;
@@ -77,6 +90,7 @@ body, html {
   border: 1px solid #ccc;
   border-radius: 5px 0 0 5px;
   flex-grow: 1;
+  font-size: 1em;
 }
 
 .search-button {
@@ -92,6 +106,7 @@ body, html {
   font-size: 1em;
 }
 
+/* Filter section styles */
 .filter-section {
   display: flex;
   align-items: center;
@@ -103,6 +118,12 @@ body, html {
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-right: 10px;
+  font-size: 1em;
+}
+
+/* Table section styles */
+.table-section {
+  overflow-x: auto; /* Allow horizontal scrolling for the table */
 }
 
 .table-section table {
@@ -113,10 +134,33 @@ body, html {
 .table-section th, .table-section td {
   padding: 10px;
   text-align: left;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ff7001;
 }
 
 .table-section th {
   background-color: #ff7001;
   color: #fff;
+}
+
+.view-button, .restrict-button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.view-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.restrict-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.warning-icon {
+  color: #f44336;
+  margin-left: 5px;
 }

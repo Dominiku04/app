@@ -4,5 +4,6 @@ export interface Student {
     age: number;
     course: string;
     level: string;
+    restricted?: boolean;
   }
   

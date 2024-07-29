@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>Student Details</h2>
+<mat-dialog-content>
+  <p><strong>ID:</strong> {{ data.id }}</p>
+  <p><strong>Name:</strong> {{ data.name }}</p>
+  <p><strong>Age:</strong> {{ data.age }}</p>
+  <p><strong>Course:</strong> {{ data.course }}</p>
+  <p><strong>Level:</strong> {{ data.level }}</p>
+  <p *ngIf="data.restricted"><strong>Status:</strong> Restricted</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onClose()">Close</button>
+</mat-dialog-actions>

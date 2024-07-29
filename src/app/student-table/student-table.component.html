@@ -2,7 +2,7 @@
   <aside class="sidebar">
     <div class="user-info">
       <div class="user-avatar">
-      <img src="assets/avatar.jpg" alt="User Avatar" class="avatar-img" />
+        <img src="assets/avatar.jpg" alt="User Avatar" class="avatar-img" />
       </div>
       <div class="user-name">ADMIN</div>
       <div class="user-role">CCS / BSCS</div>
@@ -35,15 +35,25 @@
             <th>Age</th>
             <th>Course</th>
             <th>Level</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let student of filteredStudents">
-            <td>{{ student.id }}</td>
+            <td>
+              {{ student.id }}
+              <i *ngIf="student.restricted" class="fa fa-exclamation-triangle warning-icon" aria-hidden="true"></i>
+            </td>
             <td>{{ student.name }}</td>
             <td>{{ student.age }}</td>
             <td>{{ student.course }}</td>
             <td>{{ student.level }}</td>
+            <td>
+              <button class="view-button" (click)="viewStudent(student)">View</button>
+              <button class="restrict-button" (click)="toggleRestriction(student)">
+                {{ student.restricted ? 'Unrestrict' : 'Restrict' }}
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>
