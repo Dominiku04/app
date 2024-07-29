@@ -1,39 +1,52 @@
 <div class="app-container">
-    <aside class="sidebar">
-      <div class="user-info">
-        <div class="user-avatar"></div>
-        <div class="user-name">ADMIN</div>
-        <div class="user-role">CCS / BSCS</div>
+  <aside class="sidebar">
+    <div class="user-info">
+      <div class="user-avatar">
+      <img src="assets/avatar.jpg" alt="User Avatar" class="avatar-img" />
       </div>
-    </aside>
-    <main class="main-content">
-      <header class="header">
-        <h1>STUDENTS</h1>
-      </header>
-      <section class="search-section">
-        <input [(ngModel)]="searchText" placeholder="Search Class..." class="search-input" />
-        <button class="search-button"><i class="fa fa-search"></i></button>
-      </section>
-      <section class="table-section">
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Age</th>
-              <th>Course</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let student of filteredStudents">
-              <td>{{ student.id }}</td>
-              <td>{{ student.name }}</td>
-              <td>{{ student.age }}</td>
-              <td>{{ student.course }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-    </main>
-  </div>
-  
+      <div class="user-name">ADMIN</div>
+      <div class="user-role">CCS / BSCS</div>
+    </div>
+  </aside>
+  <main class="main-content">
+    <header class="header">
+      <h1>STUDENTS</h1>
+    </header>
+    <section class="search-section">
+      <input [(ngModel)]="searchText" placeholder="Search Class..." class="search-input" />
+      <button class="search-button"><i class="fa fa-search"></i></button>
+    </section>
+    <section class="filter-section">
+      <select [(ngModel)]="selectedCourse" class="filter-dropdown">
+        <option value="">All Courses</option>
+        <option *ngFor="let course of courses" [value]="course">{{ course }}</option>
+      </select>
+      <select [(ngModel)]="selectedYearLevel" class="filter-dropdown">
+        <option value="">All Year Levels</option>
+        <option *ngFor="let yearLevel of yearLevels" [value]="yearLevel">{{ yearLevel }}</option>
+      </select>
+    </section>
+    <section class="table-section">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Course</th>
+            <th>Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let student of filteredStudents">
+            <td>{{ student.id }}</td>
+            <td>{{ student.name }}</td>
+            <td>{{ student.age }}</td>
+            <td>{{ student.course }}</td>
+            <td>{{ student.level }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</div>
