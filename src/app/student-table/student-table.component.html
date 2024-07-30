@@ -50,7 +50,11 @@
             <td>{{ student.level }}</td>
             <td>
               <button class="view-button" (click)="viewStudent(student)">View</button>
-              <button class="restrict-button" (click)="toggleRestriction(student)">
+              <button
+                class="restrict-button"
+                [class.restricted]="student.restricted"
+                (click)="toggleRestriction(student)"
+              >
                 {{ student.restricted ? 'Unrestrict' : 'Restrict' }}
               </button>
             </td>
