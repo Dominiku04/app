@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
 
 interface Student {
   id: number;

@@ -9,12 +9,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { AppComponent } from './app.component';
 import { StudentTableComponent } from './student-table/student-table.component';
 import { StudentDialogComponent } from './student-dialog/student-dialog.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { AppRoutingModule } from './app-routing.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     StudentTableComponent,
-    StudentDialogComponent
+    StudentDialogComponent,
+    LandingPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,7 +26,8 @@ import { StudentDialogComponent } from './student-dialog/student-dialog.componen
     BrowserAnimationsModule,
     MatDialogModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent],

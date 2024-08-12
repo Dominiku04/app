@@ -55,7 +55,7 @@ export class StudentTableComponent {
       this.dialogRef = null; // Reset dialogRef after dialog is closed
       console.log('The dialog was closed');
     });
-  }  
+  }
 
   toggleRestriction(student: Student): void {
     student.restricted = !student.restricted;
